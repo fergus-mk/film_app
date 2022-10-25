@@ -2,7 +2,8 @@ from fastapi import FastAPI
 
 from functionality import models
 from functionality.database import engine
-from functionality.routers import user, homepage,film
+from functionality.routers import user, homepage, film
+
 
 app = FastAPI()
 

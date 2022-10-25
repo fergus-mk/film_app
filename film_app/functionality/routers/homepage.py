@@ -2,7 +2,9 @@ from fastapi import APIRouter
 
 from ..helpers import homepage_helpers
 
+
 router = APIRouter(tags=["homepage"])
+
 
 @router.get("/")
 async def root():

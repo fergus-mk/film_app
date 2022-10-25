@@ -1,4 +1,5 @@
 from typing import List
+
 from fastapi import APIRouter, Depends, HTTPException, status
 from imdb import Cinemagoer
 from sqlalchemy.orm import Session
@@ -7,7 +8,7 @@ from .. import schemas, database
 from ..helpers import film_helpers
 
 
-router = APIRouter(prefix = "/film", tags=["film"])
+router = APIRouter(prefix="/film", tags=["film"])
 
 
 @router.get("/{id}", response_model=schemas.ShowFilm)
@@ -23,7 +24,9 @@ def all_films(db: Session = Depends(database.get_db)):
 
 
 @router.post("/")
-async def add_film(request: schemas.FilmRequest, db: Session = Depends(database.get_db)):
+async def add_film(
+    request: schemas.FilmRequest, db: Session = Depends(database.get_db)
+):
     "Adds a film to the db"
     return film_helpers.movie_maker(db, request)
 
