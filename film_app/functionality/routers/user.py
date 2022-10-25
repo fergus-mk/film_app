@@ -1,11 +1,13 @@
 from typing import List
+
 from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session
+
 from .. import schemas, database
 from ..helpers import user_helpers
 
 
-router = APIRouter(prefix = "/user", tags=["user"])
+router = APIRouter(prefix="/user", tags=["user"])
 
 
 @router.get("/{id}", response_model=schemas.ShowUser)

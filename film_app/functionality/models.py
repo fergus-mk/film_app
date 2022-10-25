@@ -14,9 +14,7 @@ class User(Base):
     password = Column(String)
     is_active = Column(Boolean, default=True)
 
-    films = relationship(
-        "Film", back_populates="owner"
-    )
+    films = relationship("Film", back_populates="owner")
 
 
 class Film(Base):
@@ -28,16 +26,4 @@ class Film(Base):
     release_year = Column(Integer)
     user_id = Column(Integer, ForeignKey("users.id"))
 
-
-    owner = relationship(
-        "User", back_populates="films"
-    )
-
-
-
-# user_film_table = Table( # If I want to add many to many relationship later 
-#     "user_film_table",
-#     Base.metadata,
-#     Column("user_id", ForeignKey("users.id")),
-#     Column("film_id", ForeignKey("films.id")),
-# )
+    owner = relationship("User", back_populates="films")
