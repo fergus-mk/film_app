@@ -27,14 +27,16 @@ def movie_extractor(movie_request):
             title = movie['title']
             year = movie['year']
             imdb_id = movie.getID()
-            return {"name": title, "release_year": year, "imdb_id": imdb_id}
+            user_id = movie_request.user_id
+            return {"name": title, "release_year": year,"user_id": user_id, "imdb_id": imdb_id}
         except IndexError as e:
             iterator +=1 
             print(f"Error with cinemagoer extraction, retrying extraction: try no. {iterator}, error detail: {e}")
 
 def movie_maker(db: Session, request = schemas.FilmRequest):
     retrieved_film = movie_extractor(request)
-    new_movie = models.Film(name=retrieved_film["name"], release_year=retrieved_film["release_year"], imdb_id=retrieved_film["imdb_id"])
+    new_movie = models.Film(name=retrieved_film["name"], release_year=retrieved_film["release_year"], 
+    user_id=retrieved_film["user_id"], imdb_id=retrieved_film["imdb_id"])
     db.add(new_movie)
     db.commit()
     db.refresh(new_movie)
