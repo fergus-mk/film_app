@@ -1,0 +1,1 @@
+{"id":"07570fd9-98b4-40e1-a6ec-e3d6287f671e","space":35273,"runtime":"python3.9","name":"film_app","path":"f6ho60","project":"a0dxctix","account":"144798365827","region":"eu-central-1","deps":["fastapi","uvicorn","sqlalchemy","passlib","bcrypt","cinemagoer","black"],"envs":null,"public":true,"log_level":"off","cron":""}

@@ -25,9 +25,5 @@ Film app is a project to showcase building an app with the FastAPI framework. It
 - DELETE - The user id is given and the user is deleted
 
 
-### Hosting
-The API is hosted using [Deta Cloud](https://www.deta.sh/) at: #####
-
-
 ### Note
 This project was inspired by: [Bitfumes FastAPI Full Course](https://www.youtube.com/watch?v=7t2alSnE2-I&t=11405s)
